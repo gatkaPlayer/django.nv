@@ -22,6 +22,16 @@ jobs:
     steps:
       - run: echo "This is an integration step"
       - run: exit 1
+      
+  artifact:
+    runs-on: ubuntu-latest   
+    steps:
+      - run: echo "This is a deploy step">outout.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Artifact store
+          path: outout.txt
+    
 
   prod:
     runs-on: ubuntu-latest
